@@ -8,6 +8,7 @@ from torch_geometric.nn import GATConv, Set2Set
 from torch_geometric.data import DataLoader
 
 import pandas as pd
+from validate import get_results
 
 
 train_dataset = TencentAlchemyDataset(root='data-bin', mode='dev').shuffle()
@@ -89,3 +90,5 @@ targets = test(valid_loader)
 df_targets = pd.DataFrame.from_dict(targets, orient="index", columns=['property_%d' % x for x in range(12)])
 df_targets.sort_index(inplace=True)
 df_targets.to_csv('targets.csv', index_label='gdb_idx')
+model_name = 'gat_epochs{epoch}}'
+get_results(model_name=model_name)
