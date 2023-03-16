@@ -89,6 +89,6 @@ for epoch in range(epoch):
 targets = test(valid_loader)
 df_targets = pd.DataFrame.from_dict(targets, orient="index", columns=['property_%d' % x for x in range(12)])
 df_targets.sort_index(inplace=True)
-df_targets.to_csv('targets.csv', index_label='gdb_idx')
+df_targets.to_csv('pyg/targets.csv', index_label='gdb_idx')
 model_name = 'gat_epochs{epoch}}'
 get_results(model_name=model_name)
